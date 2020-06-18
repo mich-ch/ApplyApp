@@ -35,10 +35,10 @@ namespace ApplyApp.Services
             return candidate;
         }
 
-        public Request CreateRequest(int jobOfferId, int candidateId)
+        public Request CreateRequest(RequestOption reqOpt)
         {
-            JobOffer jobOffer = db.JobOffers.Find(jobOfferId);
-            Candidate cand = db.Candidates.Find(candidateId);
+            JobOffer jobOffer = db.JobOffers.Find(reqOpt.JobOfferId);
+            Candidate cand = db.Candidates.Find(reqOpt.CandidateId);
             Request request = new Request
             {
                 Answer = "Pending",
@@ -69,9 +69,9 @@ namespace ApplyApp.Services
             return experience;
         }
 
-        public Skill CreateSkill(SkillOption skillOption, int candidateId)
+        public Skill CreateSkill(SkillOption skillOption)
         {
-            Candidate candidate = db.Candidates.Find(candidateId);
+            Candidate candidate = db.Candidates.Find(skillOption.CandidateId);
             Skill skill = new Skill
             {
                 Knowlegde = skillOption.Knowlegde,
@@ -85,9 +85,9 @@ namespace ApplyApp.Services
             return skill;
         }
 
-        public Education CreateEducation(EducationOption educationOption, int candidateId)
+        public Education CreateEducation(EducationOption educationOption)
         {
-            Candidate cand = db.Candidates.Find(candidateId);
+            Candidate cand = db.Candidates.Find(educationOption.CandidateId);
             Education education = new Education
             {
                 Department = educationOption.Department,

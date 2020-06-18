@@ -9,12 +9,12 @@ namespace ApplyApp.Services
     public interface IHRManagerManagement
     {
         HRManager CreateHRManager(HRManagerOption hrManagerOption);
-        JobOffer CreateJobOffer(JobOfferOption jobOfferOption, int hrManagerId);
-        Experience CreateExperience(ExperienceOption experienceOption, int HrManagerId);
-        Education CreateEducation(EducationOption educationOption, int hrManagerId);
-        Request CreateRequest(int candidateId, int JobOfferId);
+        JobOffer CreateJobOffer(JobOfferOption jobOfferOption);
+        Experience CreateExperience(ExperienceOption experienceOption);
+        Education CreateEducation(EducationOption educationOption);
+        Request CreateRequest(RequestOption reqOpt);
         Request AcceptRequest(int requestId, string answer);
-        public Request RejectRequest(int requestId, string answer);
+        Request RejectRequest(int requestId, string answer);
         List<Candidate> FindCandidateByUniversity(string university);
         List<Candidate> FindCandidateByFname(string candidateFName);
         List<Candidate> FindCandidateByLname(string candidateLName);

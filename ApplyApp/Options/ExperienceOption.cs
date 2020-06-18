@@ -6,6 +6,8 @@ namespace ApplyApp.Options
 {
     public class ExperienceOption
     {
+        public int HRManagerId { get; set; }
+        public int CandidateId { get; set; }
         public string Title { get; set; }
         public string Department { get; set; }
         public string Description { get; set; }

@@ -9,10 +9,10 @@ namespace ApplyApp.Services
     public interface ICandidateManagement
     {
         Candidate CreateCandidate(CandidateOption candidateOption);
-        Request CreateRequest(int jobOfferId, int candidateId);
+        Request CreateRequest(RequestOption reqOpt);
         Experience CreateExperience(ExperienceOption experienceOption);
-        Skill CreateSkill(SkillOption skillOption, int candidateId);
-        Education CreateEducation(EducationOption educationOption, int candidateId);
+        Skill CreateSkill(SkillOption skillOption);
+        Education CreateEducation(EducationOption educationOption);
         List<JobOffer> FindJobOffersByTitle(string title);
         List<JobOffer> FindJobOffersByCompany(string company);
         List<JobOffer> FindJobOffersByLocation(string location);

@@ -7,6 +7,7 @@ namespace ApplyApp.Options
 {
     public class JobOfferOption
     {
+        public int HRManagerId { get; set; }
         public string Title { get; set; }
         public string Company { get; set; }
         public string Location { get; set; }

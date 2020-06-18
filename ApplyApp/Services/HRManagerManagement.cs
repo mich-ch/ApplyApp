@@ -34,9 +34,9 @@ namespace ApplyApp.Services
 
             return hrManager;
         }
-        public JobOffer CreateJobOffer(JobOfferOption jobOfferOption, int hrManagerId)
+        public JobOffer CreateJobOffer(JobOfferOption jobOfferOption)
         {
-            HRManager hr = db.HRManagers.Find(hrManagerId);
+            HRManager hr = db.HRManagers.Find(jobOfferOption.HRManagerId);
             JobOffer jobOffer = new JobOffer
             {
                 Category = jobOfferOption.Category,
@@ -56,9 +56,9 @@ namespace ApplyApp.Services
 
             return jobOffer;
         }
-        public Experience CreateExperience(ExperienceOption experienceOption, int HrManagerId)
+        public Experience CreateExperience(ExperienceOption experienceOption)
         {
-            HRManager hr = db.HRManagers.Find(HrManagerId);
+            HRManager hr = db.HRManagers.Find(experienceOption.HRManagerId);
             Experience exp = new Experience
             {
                 Department = experienceOption.Department,
@@ -74,9 +74,9 @@ namespace ApplyApp.Services
 
             return exp;
         }
-        public Education CreateEducation(EducationOption educationOption, int hrManagerId)
+        public Education CreateEducation(EducationOption educationOption)
         {
-            HRManager hr = db.HRManagers.Find(hrManagerId);
+            HRManager hr = db.HRManagers.Find(educationOption.HRManagerId);
             Education edu = new Education
             {
                 Department = educationOption.Department,
@@ -92,10 +92,10 @@ namespace ApplyApp.Services
 
             return edu;
         }
-        public Request CreateRequest(int candidateId, int JobOfferId)
+        public Request CreateRequest(RequestOption reqOpt)
         {
-            JobOffer job = db.JobOffers.Find(JobOfferId);
-            Candidate cand = db.Candidates.Find(candidateId);
+            JobOffer job = db.JobOffers.Find(reqOpt.JobOfferId);
+            Candidate cand = db.Candidates.Find(reqOpt.CandidateId);
             Request req = new Request
             {
                 Answer = "Pending",
