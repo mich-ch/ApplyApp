@@ -17,7 +17,7 @@ namespace ApplyApp.Services
             db = _db;
         }
 
-        public Candidate CreateCandidate(CandidateOption candidateOption)
+        public Candidate CreateCandidate(CandidateOption candidateOption)   //ok
         {
             Candidate candidate = new Candidate
             {
@@ -52,7 +52,7 @@ namespace ApplyApp.Services
             return request;
         }
 
-        public Experience CreateExperience(ExperienceOption experienceOption)
+        public Experience CreateExperience(ExperienceOption experienceOption)   //ok
         {
             Experience experience = new Experience
             {
@@ -69,7 +69,7 @@ namespace ApplyApp.Services
             return experience;
         }
 
-        public Skill CreateSkill(SkillOption skillOption)
+        public Skill CreateSkill(SkillOption skillOption)   //ok
         {
             Candidate candidate = db.Candidates.Find(skillOption.CandidateId);
             Skill skill = new Skill
@@ -85,7 +85,7 @@ namespace ApplyApp.Services
             return skill;
         }
 
-        public Education CreateEducation(EducationOption educationOption)
+        public Education CreateEducation(EducationOption educationOption)   //ok
         {
             Candidate cand = db.Candidates.Find(educationOption.CandidateId);
             Education education = new Education
