@@ -1,6 +1,7 @@
 ﻿using ApplyApp.Models;
 using ApplyApp.Options;
 using ApplyApp.Repository;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using System;
 using System.Collections.Generic;
@@ -128,8 +129,8 @@ namespace ApplyApp.Services
         }
         public List<Candidate> FindCandidateByUniversity(string university)
         {
-            List<Education> edus = db.Educations.Where(educ => educ.Department == university).ToList();
-            List<Candidate> candidates = null;
+            List<Education> edus = db.Educations.Include(educ => educ.Candidate).Where(educ => educ.Department == university && educ.Candidate != null).ToList();
+            List<Candidate> candidates = new List<Candidate>();
             foreach (var edu in edus)
             {
                 candidates.Add(edu.Candidate);
@@ -142,7 +143,7 @@ namespace ApplyApp.Services
         }
         public List<Candidate> FindCandidateByLname(string candidateLName)
         {
-            return db.Candidates.Where(can => can.FirstName == candidateLName).ToList();
+            return db.Candidates.Where(can => can.LastName == candidateLName).ToList();
         }
         public List<Candidate> FindCandidateBySkills(List<string> titlesSkill)
         {
@@ -162,7 +163,7 @@ namespace ApplyApp.Services
         public List<JobOffer> FindJobOfferByHRManager(int hrManagerId)
         {
             HRManager hr = db.HRManagers.Find(hrManagerId);
-            return db.JobOffers.Where(job => job.HRManager == hr).ToList();
+            return db.JobOffers.Include(jbO => jbO.HRManager).Where(job => job.HRManager == hr && job.HRManager != null).ToList();
         }
 
     }

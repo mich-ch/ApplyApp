@@ -97,14 +97,15 @@ namespace ApplyApp
             Request req = candMngr.CreateRequest(reqOpt);
 
             List<JobOffer> jobOffers = candMngr.FindJobOffersByCategory(jobOpt.Category);
-
+            Request requestNew = hrMngr.AcceptRequest(1, "Yes");
+            List<Candidate> cands = hrMngr.FindCandidateByUniversity("UTH");
 
             //Console.WriteLine(
-            //          $"Id= {job.Id} FName= {job.HRManager.FirstName} Title= {job.Title}");
+            //          $"Id= {requestNew.Id} Answer= {requestNew.Answer} JobOffer= {requestNew.JobOffer.Title}");
 
-            foreach (var jobOffer in jobOffers)
+            foreach (var cand in cands)
             {
-                Console.WriteLine($"Id= {jobOffer.Id} FName= {jobOffer.HRManager.FirstName} Category= {jobOffer.Category}");
+                Console.WriteLine($"Id= {cand.Id} FName= {cand.FirstName} LastName= {cand.LastName}");
 
             }
 
@@ -120,13 +121,13 @@ namespace ApplyApp
                          Request        
                          JobOffer       ok
                          
-                Functions:   AcceptRequest
-                             RejectRequest
-                             FindCandidateByUniversity
-                             FindCandidateByFname
-                             FindCandidateByLname
-                             FindCandidateBySkills
-                             FindJobOfferByHRManager
+                Functions:   AcceptRequest                  ok
+                             RejectRequest                  ok
+                             FindCandidateByUniversity      ok
+                             FindCandidateByFname           ok
+                             FindCandidateByLname           ok
+                             FindCandidateBySkills          front
+                             FindJobOfferByHRManager        ok
             */
         }
     }
