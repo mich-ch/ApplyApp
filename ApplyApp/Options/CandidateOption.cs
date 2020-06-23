@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,5 +13,8 @@ namespace ApplyApp.Options
         public string Username { get; set; }
         public string PhotoPath { get; set; }
         public string CVPath { get; set; }
+        public IFormFile Picture { set; get; }
+        public IFormFile CV { set; get; }
+
     }
 }

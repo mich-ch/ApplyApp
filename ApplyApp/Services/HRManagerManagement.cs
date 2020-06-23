@@ -49,7 +49,8 @@ namespace ApplyApp.Services
                 Title = jobOfferOption.Title,
                 HRManager = hr,
                 Requests = null,
-                Skills = null
+                Skills = null,
+                PhotoPath = jobOfferOption.PicturePath
             };
 
             db.JobOffers.Add(jobOffer);

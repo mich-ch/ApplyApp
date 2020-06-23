@@ -17,5 +17,6 @@ namespace ApplyApp.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public List<Request> Requests { get; set; }
+        public string PhotoPath { get; set; }
     }
 }

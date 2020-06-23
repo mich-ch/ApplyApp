@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,5 +12,6 @@ namespace ApplyApp.Options
         public string Password { get; set; }
         public string Username { get; set; }
         public string PhotoPath { get; set; }
+        public IFormFile Picture { set; get; }
     }
 }
