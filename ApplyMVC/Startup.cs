@@ -2,12 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApplyApp.Repository;
+using ApplyApp.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
 
 namespace ApplyMVC
 {
@@ -23,7 +27,20 @@ namespace ApplyMVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<CrmDbContext>(options =>
+               options.UseSqlServer(CrmDbContext.connectionString));
+
+            services.AddTransient<ISkillManagement, SkillManagement>();
+            services.AddTransient<IRequestManagement, RequestManagement>();
+            services.AddTransient<IJobOfferManagement, JobOfferManagement>();
+            services.AddTransient<IHRManagerManagement, HRManagerManagement>();
+            services.AddTransient<IExperienceManagement, ExperienceManagement>();
+            services.AddTransient<IEducationManagement, EducationManagement>();
+            services.AddTransient<ICandidateManagement, CandidateManagement>();
+
+
             services.AddControllersWithViews();
+            services.AddLogging();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,8 +53,6 @@ namespace ApplyMVC
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
