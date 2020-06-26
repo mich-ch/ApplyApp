@@ -72,7 +72,6 @@ body {
 
 /* Index CSS*/
 .imageBackGr {
-   
     margin: 0;
     top: 0;
     padding-top: 15%;
@@ -83,4 +82,23 @@ body {
     margin-right: -15px !important;
     margin-left: -15px !important;
     margin-top: -15px !important;
+}
+
+.sectIndex {
+    
+    padding-bottom: 5%;
+    margin-right: -15px !important;
+    margin-left: -15px !important;
+    padding-top: 5%;
+}
+
+.template {
+    padding: 2%;
+    font-size: 20px;
+}
+
+.indexText {
+    padding-left: 5%;
+    padding-right: 5%;
+    
 }
