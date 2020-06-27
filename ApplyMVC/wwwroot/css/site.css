@@ -99,6 +99,11 @@ body {
 
 .indexText {
     padding-left: 5%;
-    padding-right: 5%;
-    
+    padding-right: 5%;   
+}
+
+.contactmail {
+    padding-top: 10%;
+    padding-bottom: 5%;
+    background-color: #f0eeeb;
 }
